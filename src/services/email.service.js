@@ -29,7 +29,7 @@ If you did not request any password resets, then ignore this email.`;
 };
 
 const sendVerificationEmail = async (email, token) => {
-  const verificationUrl = `http://localhost:3000/verify-email?token=${token}`;
+  const verificationUrl = `https://workout-planner-2pch.vercel.app/verify-email?token=${token}`;
   const mailOptions = {
     from: process.env.SMTP_FROM,
     to: email,
