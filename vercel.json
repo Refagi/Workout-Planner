@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(css|js|images|fonts)/(.*)",
+      "dest": "/public/$1/$2"
+    },
+    {
+      "src": "/(.*\\.(html|png|jpg|jpeg|ico|svg|webmanifest))",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/public/index.html"
+    },
+    {
+      "src": "/auth",
+      "dest": "/public/auth.html"
+    },
+    {
+      "src": "/verify",
+      "dest": "/public/verifyEmail.html"
+    },
+    {
+      "src": "/v1/(.*)",
+      "dest": "src/app.js"
+    }
+  ],
+  "config": {
+    "build": {
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}
