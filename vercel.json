@@ -15,14 +15,6 @@
   ],
   "routes": [
     {
-      "src": "/(css|js|images|fonts)/(.*)",
-      "dest": "/public/$1/$2"
-    },
-    {
-      "src": "/(.*\\.(html|png|jpg|jpeg|ico|svg|webmanifest))",
-      "dest": "/public/$1"
-    },
-    {
       "src": "/auth",
       "dest": "/public/auth.html"
     },
