@@ -18,7 +18,7 @@ $(document).ready(function () {
 
       try {
         const response = await axios.post(
-          'http://localhost:3000/v1/auth/logout',
+          'https://workout-planner-2pch.vercel.app/v1/auth/logout',
           { refreshToken },
           {
             headers: { 'Content-Type': 'application/json' }

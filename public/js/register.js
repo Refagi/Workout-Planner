@@ -20,7 +20,7 @@ $(document).ready(function () {
       });
 
       try {
-        const response = await axios.post('http://localhost:3000/v1/auth/register', requestData, {
+        const response = await axios.post('https://workout-planner-2pch.vercel.app/v1/auth/register', requestData, {
           headers: { 'Content-Type': 'application/json' }
         });
 
