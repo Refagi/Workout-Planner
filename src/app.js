@@ -17,7 +17,6 @@ import path from 'path';
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const allowedOrigins = process.env.CORS_ORIGIN || '*';
 
 // Logging middleware (hanya di non-test environment)
 if (process.env.NODE_ENV !== 'test') {
@@ -33,7 +32,7 @@ const corsOptions = {
   credentials: true // Izinkan pengiriman cookies atau header Authorization
 };
 
-app.use(cors(corsOptions));
+app.use(cors('*'));
 
 // Set security HTTP headers
 app.use(
