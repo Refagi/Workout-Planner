@@ -2,8 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/app.js",
-      "use": "@vercel/node"
+      "src": "src/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "build": {
+          "env": {
+            "NODE_ENV": "production"
+          }
+        }
+      }
     }
   ],
   "routes": [
@@ -24,8 +31,8 @@
       "dest": "/public/verifyEmail.html"
     },
     {
-      "src": "/v1/(.*)",
-      "dest": "src/app.js"
+      "src": "/(.*)",
+      "dest": "src/index.js"
     },
     {
       "src": "/",
