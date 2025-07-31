@@ -6,10 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development nodemon src/index",
+    "start": "pm2 start ecosystem.config.json --no-daemon",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --check **/*.js",
-    "prettier:fix": "prettier --write **/*.js"
+    "prettier:fix": "prettier --write **/*.js",
+    "lint-staged": "lint-staged"
+  },
+    "lint-staged": {
+    "*.js": "eslint --fix"
   },
   "keywords": [],
   "author": "",
