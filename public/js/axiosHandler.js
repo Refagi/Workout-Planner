@@ -1,8 +1,12 @@
 const axios = window.axios; // Pastikan axios tersedia dari CDN
 
+const baseURL = window.location.origin.includes('localhost')
+  ? 'http://localhost:3000/v1'
+  : 'https://workout-planner-2pch.vercel.app/v1';
+
 // Buat instance Axios
 const api = axios.create({
-  baseURL: 'http://localhost:3000/v1',
+  baseURL,
   headers: { 'Content-Type': 'application/json' }
 });
 
@@ -33,7 +37,9 @@ api.interceptors.response.use(
           throw new Error('No refresh token available');
         }
 
-        const response = await axios.post('http://localhost:3000/v1/auth/refresh-tokens', { refreshToken });
+        const response = await axios.post('https://workout-planner-2pch.vercel.app/v1/auth/refresh-tokens', {
+          refreshToken
+        });
         const { access, refresh } = response.data;
 
         localStorage.removeItem('accessToken');
