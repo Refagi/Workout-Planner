@@ -26,13 +26,13 @@ if (process.env.NODE_ENV !== 'test') {
 
 // enable cors
 const corsOptions = {
-  origin: allowedOrigins,
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Metode HTTP yang diizinkan
   allowedHeaders: ['Content-Type', 'Authorization'], // Header yang diizinkan
   credentials: true // Izinkan pengiriman cookies atau header Authorization
 };
 
-app.use(cors('*'));
+app.use(cors(corsOptions));
 
 // Set security HTTP headers
 app.use(
