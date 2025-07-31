@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Workout Planner</title>
+    <link rel="stylesheet" href="css/auth.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/favicon/favicon.jpeg" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <style>
+      .swal2-container .swal2-popup .custom-swal-confirm {
+        background: linear-gradient(to right, #0072ff, #00c6ff) !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 5px !important;
+        padding: 10px 20px !important;
+        transition: opacity 0.3s !important;
+      }
+      .swal2-container .swal2-popup .custom-swal-confirm:hover {
+        opacity: 0.8 !important;
+      }
+      .swal2-container .swal2-popup {
+        background: #1a1a1a !important;
+        color: #ffffff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="auth-wrapper">
+      <!-- LOGIN -->
+      <div class="auth-section" id="login-section">
+        <h2>Selamat Datang Pejuang 💪</h2>
+        <p class="subtitle">Masukkan email & password untuk masuk ke Workout-Planner</p>
+        <form id="login-form">
+          <div class="auth-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="loginEmail" placeholder="Masukan email" required />
+          </div>
+          <div class="auth-group">
+            <label for="loginPassword">Kata Sandi</label>
+            <div class="input-password">
+              <input
+                type="password"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Masukan Kata Sandi"
+                required
+              />
+              <i class="far fa-eye-slash toggle-password" data-target="loginPassword"></i>
+            </div>
+          </div>
+          <div class="auth-link">
+            <button id="toForgot">Lupa Kata Sandi?</button>
+          </div>
+          <div class="auth-group">
+            <button type="submit" class="btn-submit">Masuk</button>
+          </div>
+        </form>
+        <p class="auth-switch">Belum punya akun? <button id="toRegister">Daftar</button></p>
+      </div>
+
+      <!-- REGISTER -->
+      <div class="auth-section hidden" id="register-section">
+        <h2>Buat Akun 📝</h2>
+        <p class="subtitle">Isi form untuk membuat akun baru</p>
+        <form id="register-form">
+          <div class="auth-group">
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" name="registerEmail" placeholder="Email" required />
+          </div>
+          <div class="auth-group">
+            <label for="registerPassword">Kata Sandi</label>
+            <div class="input-password">
+              <input type="password" id="registerPassword" name="registerPassword" placeholder="Password" required />
+              <i class="far fa-eye-slash toggle-password" data-target="registerPassword"></i>
+            </div>
+          </div>
+          <div class="auth-group">
+            <button type="submit" class="btn-submit">Daftar</button>
+          </div>
+        </form>
+        <p class="auth-switch">Sudah punya akun? <button id="toLogin">Masuk</button></p>
+      </div>
+
+      <!-- FORGOT PASSWORD -->
+      <div class="auth-section hidden" id="forgot-section">
+        <h2>Lupa Kata Sandi</h2>
+        <p class="subtitle">Masukkan email, kami akan kirimkan link reset</p>
+        <form id="forgot-form">
+          <div class="auth-group">
+            <label for="forgotEmail">Email</label>
+            <input type="email" id="forgotEmail" placeholder="Masukan email" required />
+          </div>
+          <div class="auth-group">
+            <button type="submit" class="btn-submit">Kirim Link</button>
+          </div>
+        </form>
+        <p class="auth-switch"><button type="button" id="backToLogin">Kembali ke Login</button></p>
+      </div>
+
+      <!-- SEND VERIFIKASI -->
+      <div class="auth-section hidden" id="verif-section">
+        <h2>Verifikasi Email</h2>
+        <p class="subtitle">Klik tombol di bawah untuk kirim ulang email verifikasi</p>
+        <form id="verif-form">
+          <div class="auth-group">
+            <button type="submit" class="btn-submit">Kirim Verifikasi</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/toggleAuth.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/sendVerify.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

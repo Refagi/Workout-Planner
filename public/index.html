@@ -1,0 +1,89 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Planner</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Workout-Planner</div>
+      <nav>
+        <ul>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#tujuan">Tujuan Saya</a></li>
+          <li><a href="#latihan">Latihan Saya</a></li>
+        </ul>
+      </nav>
+      <div>
+       <button type="button" class="btn-logout" style="display: none;">logout</button>
+       <button type="button" class="btn-signup">Sign In</button>
+      </div>
+    </header>
+
+    <section class="hero" id="tentang">
+      <div class="hero-text">
+        <h1>Mulai Rencana Latihanmu Hari Ini</h1>
+        <p>
+          Workout-Planner adalah platform pintar untuk membantu kamu menyusun rencana latihan berdasarkan tujuan
+          pribadi, tingkat pengalaman, dan alat yang kamu miliki.
+        </p>
+        <div class="hero-link">
+        <a href="#latihan" class="btn-generate">Mulai Generate</a>
+        <a href="#tujuan" class="link-tujuan">Lihat Tujuan Saya</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="images/workou-profile1.png" alt="Workout" />
+      </div>
+    </section>
+
+    <h2 class="section-title">Fitur Utama Kami</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Tujuan Pribadi</h3>
+        <p>
+          Atur tujuanmu seperti bulking, cutting, atau menjaga kebugaran, dan sesuaikan dengan jadwal serta alat yang
+          tersedia.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Rencana Latihan AI</h3>
+        <p>Workout-Planner akan membuat rencana mingguan berdasarkan data tubuh dan preferensimu secara otomatis.</p>
+      </div>
+      <div class="card">
+        <h3>Evaluasi & Update</h3>
+        <p>Lihat kemajuanmu, edit tujuan, dan dapatkan rencana latihan yang terus diperbarui oleh AI kami.</p>
+      </div>
+    </div>
+
+    <!-- Tujuan Saya -->
+    <section id="tujuan" class="section">
+      <h2 class="section-title">Tujuan Saya</h2>
+      <div id="goalSection"></div>
+    </section>
+
+    <!-- Latihan Saya -->
+    <section id="latihan" class="section">
+      <h2 class="section-title">Latihan Saya</h2>
+      <div id="planSection">
+        <div id="workoutPlanResult"></div>
+      </div>
+    </section>
+
+       <!-- Footer -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Workout-Planner. All Rights Reserved.</p>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/axiosHandler.js"></script>
+    <script src="js/toggle.js"></script>
+    <script src="js/logout.js"></script>
+  </body>
+</html>

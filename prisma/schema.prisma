@@ -1,0 +1,108 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  username   String?
+  email      String   @unique
+  password   String
+  age        Int?
+  gender     String?   // 'male', 'female'
+  heightCm   Int?
+  weightKg   Int?
+  isEmailVerified   Boolean      @default(false)
+  updateAt   DateTime @updatedAt
+  createdAt  DateTime @default(now())
+
+  token          Token[]
+  goals          Goal[]
+  workoutPlans   WorkoutPlan[]
+}
+
+model Token {
+  id          String    @id @default(uuid())
+  token       String    @db.VarChar(400)
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type        String
+  expires     DateTime
+  blacklisted Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Goal {
+  id              String   @id @default(uuid())
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId          String
+  goalType        String   // 'bulking', 'cutting', etc.
+  experienceLevel String   // 'beginner', 'intermediate', 'advanced'
+  equipment       String   // 'gym', 'home', 'bodyweight'
+  availableDays   Int
+  goalNotes       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  workoutPlans    WorkoutPlan[]
+}
+
+model WorkoutPlan {
+  id         String   @id @default(uuid())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  goal       Goal     @relation(fields: [goalId], references: [id])
+  goalId     String
+  planName   String
+  totalWeeks Int
+  createdAt  DateTime @default(now())
+
+  workoutDays WorkoutDay[]
+}
+
+model WorkoutDay {
+  id          String   @id @default(uuid())
+  plan        WorkoutPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  planId      String
+  dayNumber   Int
+  focusArea   String
+  description String?
+  createdAt   DateTime @default(now())
+
+  workoutExercises WorkoutExercise[]
+}
+
+model Exercise {
+  id          String   @id @default(uuid())
+  name        String
+  category    String
+  equipment   String
+  difficulty  String
+  instructions String?
+  source      String?
+
+  workoutExercises WorkoutExercise[]
+}
+
+model WorkoutExercise {
+  id             String       @id @default(uuid())
+  workoutDay     WorkoutDay   @relation(fields: [workoutDayId], references: [id], onDelete: Cascade)
+  workoutDayId   String
+  exercise       Exercise     @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  exerciseId     String
+  sets           Int
+  reps           Int
+  restSeconds    Int
+  orderIndex     Int
+}
