@@ -15,18 +15,6 @@
   ],
   "routes": [
     {
-      "src": "/auth",
-      "dest": "/public/auth.html"
-    },
-    {
-      "src": "/verify-email",
-      "dest": "/public/verifyEmail.html"
-    },
-    {
-      "src": "/",
-      "dest": "/public/index.html"
-    },
-        {
       "src": "/(.*)",
       "dest": "src/index.js"
     }
