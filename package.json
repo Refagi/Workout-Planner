@@ -14,7 +14,7 @@
     "prettier:fix": "prettier --write **/*.js",
     "lint-staged": "lint-staged"
   },
-    "lint-staged": {
+  "lint-staged": {
     "*.js": "eslint --fix"
   },
   "keywords": [],
@@ -53,8 +53,6 @@
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-security": "^3.0.1",
     "faker": "^6.6.6",
-    "husky": "^9.1.7",
-    "jest": "^30.0.4",
     "lint-staged": "^16.1.2",
     "node-mocks-http": "^1.17.2",
     "nodemon": "^3.1.10",
