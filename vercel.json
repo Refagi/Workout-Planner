@@ -32,11 +32,7 @@
       "dest": "src/app.js"
     }
   ],
-  "config": {
-    "build": {
-      "env": {
-        "NODE_ENV": "production"
-      }
-    }
+  "env": {
+    "NODE_ENV": "production"
   }
 }
