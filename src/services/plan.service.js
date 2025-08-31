@@ -237,7 +237,6 @@ Format response:
 };
 
 const deleteWorkoutPlan = async (planId) => {
-  // 1. Periksa apakah WorkoutPlan ada
   const workoutPlan = await prisma.workoutPlan.findUnique({
     where: { id: planId }
   });
@@ -246,7 +245,7 @@ const deleteWorkoutPlan = async (planId) => {
     throw new ApiError(httpStatus.NOT_FOUND, `WorkoutPlan dengan ID ${planId} tidak ditemukan`);
   }
 
-  // 2. Ambil semua exerciseId terkait WorkoutPlan dalam transaksi
+  //  Ambil semua exerciseId terkait WorkoutPlan dalam transaksi
   // Menggunakan prisma.$transaction untuk memastikan semua operasi
   // (pengecekan dan penghapusan) dilakukan secara atomik.
   return await prisma.$transaction(async (tx) => {
@@ -259,20 +258,16 @@ const deleteWorkoutPlan = async (planId) => {
       select: { exerciseId: true }
     });
 
-    // 3. Hapus WorkoutPlan (otomatis menghapus WorkoutDay & WorkoutExercise karena cascade)
     await tx.workoutPlan.delete({
       where: { id: planId }
     });
 
-    // 4. Cek dan hapus Exercise yang tidak lagi digunakan
     for (const { exerciseId } of workoutExercises) {
-      // Periksa apakah Exercise masih ada
       const exerciseExists = await tx.exercise.findUnique({
         where: { id: exerciseId }
       });
 
       if (exerciseExists) {
-        // Periksa apakah Exercise masih digunakan oleh WorkoutExercise lain
         const count = await tx.workoutExercise.count({
           where: { exerciseId }
         });

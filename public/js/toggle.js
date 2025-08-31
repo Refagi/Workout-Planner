@@ -622,9 +622,9 @@ $(document).ready(() => {
 
     try {
       await api.delete(`/plans/${planId}`);
-      localStorage.removeItem('planId'); // Hapus planId dari localStorage
-      localStorage.removeItem('tokenGenerate'); // Hapus tokenGenerate jika perlu
-      localStorage.removeItem('lastTokenReset'); // Hapus lastTokenReset jika perlu
+      localStorage.removeItem('planId');
+      localStorage.removeItem('tokenGenerate');
+      localStorage.removeItem('lastTokenReset');
       await showAlert({
         icon: 'success',
         title: 'Sukses!',
@@ -668,10 +668,8 @@ $(document).ready(() => {
         };
         const goalData = response.data.data.goals[0];
 
-        // Render form dengan data yang sudah diisi
         renderUpdateGoalForm(goalData, userData);
 
-        // Tangani submit form pengguna
         $('#updateUserForm').on('submit', async (e) => {
           e.preventDefault();
           const updatedUserData = {
@@ -703,7 +701,7 @@ $(document).ready(() => {
           }
         });
 
-        // Tangani submit form tujuan
+        //submit form tujuan
         $('#updateGoalForm').on('submit', async (e) => {
           e.preventDefault();
           const updatedGoalData = {
@@ -739,11 +737,10 @@ $(document).ready(() => {
           }
         });
 
-        // Tangani tombol batal
         $('.btn-cancel').on('click', () => {
           $('#updateUserForm, #updateGoalForm').slideUp(300, () => {
             $('#goalSection').empty();
-            getUserGoals(); // Kembali ke tampilan awal
+            getUserGoals();
           });
         });
       } catch (err) {
@@ -758,7 +755,6 @@ $(document).ready(() => {
     });
   }
 
-  // Fungsi untuk menangani klik tombol Sign Up
   function handleSignUpClick() {
     $(document).on('click', '.btn-signup', () => {
       window.location.href = '/auth';
@@ -783,7 +779,6 @@ $(document).ready(() => {
     });
   }
 
-  // Fungsi untuk menangani klik kartu latihan
   function handleExerciseCardClick() {
     $(document).on('click', '.exercise-card', function () {
       const exerciseIndex = $(this).data('exercise-index');
@@ -791,7 +786,6 @@ $(document).ready(() => {
     });
   }
 
-  // Inisialisasi aplikasi
   function initializeApp() {
     if (!checkApiAvailability()) return;
     setupSmoothScroll();
@@ -809,6 +803,5 @@ $(document).ready(() => {
     getPlan();
   }
 
-  // Jalankan inisialisasi
   initializeApp();
 });

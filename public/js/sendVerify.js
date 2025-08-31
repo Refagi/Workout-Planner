@@ -3,7 +3,6 @@ $(document).ready(function () {
     $('#verif-form').on('submit', async function (event) {
       event.preventDefault();
 
-      // Ambil token dari localStorage (sesuaikan dengan register.js)
       const accessToken = localStorage.getItem('accessToken');
 
       if (!accessToken) {

@@ -18,7 +18,6 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Logging middleware (hanya di non-test environment)
 if (process.env.NODE_ENV !== 'test') {
   app.use(successHandler);
   app.use(errorHandler);
@@ -27,9 +26,9 @@ if (process.env.NODE_ENV !== 'test') {
 // enable cors
 const corsOptions = {
   origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Metode HTTP yang diizinkan
-  allowedHeaders: ['Content-Type', 'Authorization'], // Header yang diizinkan
-  credentials: true // Izinkan pengiriman cookies atau header Authorization
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 };
 
 app.use(cors(corsOptions));
@@ -42,7 +41,7 @@ app.use(
         defaultSrc: ["'self'"],
         scriptSrc: [
           "'self'",
-          "'unsafe-inline'", // Pertimbangkan menghapus di produksi
+          "'unsafe-inline'",
           'https://cdn.jsdelivr.net',
           'https://code.jquery.com',
           'https://fonts.googleapis.com',
@@ -50,7 +49,7 @@ app.use(
         ],
         styleSrc: [
           "'self'",
-          "'unsafe-inline'", // Pertimbangkan menghapus di produksi
+          "'unsafe-inline'",
           'https://cdn.jsdelivr.net',
           'https://fonts.googleapis.com',
           'https://cdnjs.cloudflare.com'

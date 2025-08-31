@@ -1,6 +1,5 @@
 $(document).ready(function () {
   function verifyEmail() {
-    // Ambil token dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const verifyToken = urlParams.get('token') || localStorage.getItem('verifyToken');
 
@@ -8,7 +7,6 @@ $(document).ready(function () {
       submitVerificationToken(verifyToken);
     }
 
-    // Tangani submit form
     $('#verif-form').on('submit', async function (event) {
       event.preventDefault();
 

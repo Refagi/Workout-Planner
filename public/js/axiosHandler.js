@@ -1,16 +1,14 @@
-const axios = window.axios; // Pastikan axios tersedia dari CDN
+const axios = window.axios;
 
 const baseURL = window.location.origin.includes('localhost')
   ? 'http://localhost:3000/v1'
   : 'https://workout-planner-2pch.vercel.app/v1';
 
-// Buat instance Axios
 const api = axios.create({
   baseURL,
   headers: { 'Content-Type': 'application/json' }
 });
 
-// Interceptor untuk menambahkan access token ke setiap permintaan
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('accessToken');
@@ -24,7 +22,6 @@ api.interceptors.request.use(
   }
 );
 
-// Interceptor untuk menangani 401 Unauthorized
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -79,5 +76,4 @@ api.interceptors.response.use(
   }
 );
 
-// Ekspor instance Axios ke window.api
 window.api = api;
