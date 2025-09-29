@@ -23,7 +23,6 @@ const geminiApiRequest = async (dataPlans) => {
       res = JSON.parse(rawText);
       console.log('result AI: ', res.result);
     } catch (err) {
-      console.error('Raw response:', await result.response.text()); // log untuk debug
       throw new ApiError(httpStatus.BAD_REQUEST, 'Response AI is not valid JSON.');
     }
 
@@ -54,7 +53,6 @@ const grokApiRequest = async (dataPlans) => {
     console.log('result AI: ', res.result);
     return res.result;
   } catch (error) {
-    console.error('Raw response:', res.result); // log untuk debug
     throw new ApiError(httpStatus.BAD_REQUEST, 'Response AI is not valid JSON.');
   }
 };
@@ -118,7 +116,6 @@ const createPlans = async (goalId) => {
     }
   });
 
-  // 2. Loop per hari (day1, day2, ...)
   const workoutDays = [];
   for (const [dayKey, exercises] of Object.entries(aiResponse)) {
     const dayNumber = parseInt(dayKey.replace('day', '')) || 1;
@@ -191,7 +188,6 @@ const createPlans = async (goalId) => {
     });
   }
 
-  // 5. Kembalikan respons
   return {
     dataPlan: {
       id: workoutPlan.id,
