@@ -307,7 +307,6 @@ form button {
   opacity: 0.8;
 }
 
-/* Styling untuk container rencana */
 .plan-container {
   width: 100%;
   padding: 1rem;
@@ -332,7 +331,6 @@ form button {
   border: none;
 }
 
-/* Styling untuk container kartu hari */
 .day-cards {
   display: flex;
   flex-direction: column;
@@ -340,7 +338,6 @@ form button {
   margin-top: 1.5rem;
 }
 
-/* Styling untuk kartu hari */
 .day-card {
   background: #1a1a1a;
   padding: 1.5rem;
@@ -351,13 +348,11 @@ form button {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Hover effect untuk kartu hari */
 .day-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 12px rgba(0, 102, 255, 0.3);
 }
 
-/* Styling untuk heading di dalam day-card */
 .day-card h3 {
   font-size: 1.6rem;
   font-weight: 700;
@@ -365,14 +360,12 @@ form button {
   color: #ffffff;
 }
 
-/* Styling untuk paragraf di dalam day-card */
 .day-card p {
   font-size: 0.95rem;
   color: #ccc;
   margin: 0;
 }
 
-/* Styling untuk tombol Lihat Latihan */
 .day-card .btn-view-exercises {
   background: linear-gradient(to right, #0072ff, #00c6ff);
   color: white;
@@ -387,19 +380,16 @@ form button {
   width: 100%;
 }
 
-/* Hover effect untuk tombol Lihat Latihan */
 .day-card .btn-view-exercises:hover {
   opacity: 0.8;
 }
 
-/* Styling untuk container latihan */
 .exercise-container {
   width: 100%;
   padding: 1rem;
   color: #ffffff;
 }
 
-/* Styling untuk tombol Kembali */
 .exercise-container .btn-back {
   background: #333;
   color: #ffffff;
@@ -413,12 +403,10 @@ form button {
   transition: background 0.3s;
 }
 
-/* Hover effect untuk tombol Kembali */
 .exercise-container .btn-back:hover {
   background: #444;
 }
 
-/* Styling untuk container kartu latihan */
 .exercise-cards {
   display: flex;
   flex-direction: row;
@@ -427,7 +415,6 @@ form button {
   margin-top: 10px;
 }
 
-/* Styling untuk kartu latihan */
 .exercise-card {
   text-align: center;
   background: #1a1a1a;
@@ -439,13 +426,11 @@ form button {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Hover effect untuk kartu latihan */
 .exercise-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 12px rgba(0, 102, 255, 0.3);
 }
 
-/* Styling untuk heading di dalam exercise-card */
 .exercise-card h3 {
   font-size: 1.4rem;
   font-weight: 700;
@@ -453,7 +438,6 @@ form button {
   color: #ffffff;
 }
 
-/* Styling untuk paragraf di dalam exercise-card */
 .exercise-card p {
   font-size: 0.95rem;
   color: #ccc;
@@ -467,7 +451,6 @@ form button {
   margin: 0;
 }
 
-/* Styling untuk detail latihan di pop-up */
 .exercise-details p {
   font-size: 0.95rem;
   color: #ccc;
@@ -475,14 +458,12 @@ form button {
   line-height: 1.5;
 }
 
-/* Styling untuk strong di dalam exercise-details */
 .exercise-details p strong {
   color: #ffffff;
   font-weight: 600;
 }
 
 
-/* Footer */
 .footer-bottom {
   text-align: center;
   margin-top: 2rem;
@@ -496,7 +477,7 @@ form button {
   color: #ccc;
 }
 
-/* RESPONSIVE BREAKPOINT */
+
 @media (max-width: 768px) {
   .hero {
     flex-direction: column-reverse;
