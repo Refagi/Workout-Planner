@@ -36,7 +36,7 @@ $(document).ready(function () {
 
       try {
         const response = await axios.post(
-          'https://workout-planner-2pch.vercel.app/v1/auth/send-verification-email',
+          '/v1/auth/send-verification-email',
           {},
           {
             headers: {

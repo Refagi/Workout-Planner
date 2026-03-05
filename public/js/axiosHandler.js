@@ -2,7 +2,7 @@ const axios = window.axios;
 
 const baseURL = window.location.origin.includes('localhost')
   ? 'http://localhost:3000/v1'
-  : 'https://workout-planner-2pch.vercel.app/v1';
+  : '/v1';
 
 const api = axios.create({
   baseURL,

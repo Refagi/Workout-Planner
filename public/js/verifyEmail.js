@@ -41,7 +41,7 @@ $(document).ready(function () {
 
     try {
       const response = await axios.get(
-        `https://workout-planner-2pch.vercel.app/v1/auth/verify-email?token=${encodeURIComponent(token)}`,
+        `/v1/auth/verify-email?token=${encodeURIComponent(token)}`,
         {
           headers: {
             'Content-Type': 'application/json'
