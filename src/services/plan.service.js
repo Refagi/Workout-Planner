@@ -229,7 +229,9 @@ Format response:
 }
 
   kirim response dalam bahasa indonesia,
-  Jangan menambahkan penjelasan atau teks lain di luar format yang diminta.`;
+  Jangan menambahkan penjelasan atau teks lain di luar format yang diminta.
+  IMPORTANT: Output HANYA JSON object valid. JANGAN tambahkan apapun di luar {}: tidak ada backticks, tidak ada ${``}json, tidak ada penjelasan,
+  tidak ada teks tambahan sebelum atau sesudah. Mulai langsung dengan { dan akhiri dengan }. Gunakan double quotes untuk semua string. Pastikan JSON valid tanpa error syntax.`;
 };
 
 const deleteWorkoutPlan = async (planId) => {
