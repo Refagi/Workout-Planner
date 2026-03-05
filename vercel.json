@@ -27,6 +27,10 @@
       "dest": "src/index.js"
     },
     {
+      "source": "/auth",
+      "dest": "/src/index.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "src/index.js"
     }
